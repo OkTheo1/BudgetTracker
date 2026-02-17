@@ -1,0 +1,59 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Mint/Teal Accent Colors - Fresh Money Feel -->
+    <Color x:Key="PrimaryColor">#00C4B4</Color>
+    <Color x:Key="PrimaryDarkColor">#009688</Color>
+    <Color x:Key="PrimaryLightColor">#5BD787</Color>
+    <Color x:Key="AccentColor">#00D9C4</Color>
+    
+    <!-- Background Colors -->
+    <Color x:Key="BackgroundColor">#1E1E1E</Color>
+    <Color x:Key="SurfaceColor">#2D2D2D</Color>
+    <Color x:Key="CardColor">#383838</Color>
+    <Color x:Key="PaneColor">#252525</Color>
+    
+    <!-- Text Colors -->
+    <Color x:Key="TextPrimaryColor">#FFFFFF</Color>
+    <Color x:Key="TextSecondaryColor">#B0B0B0</Color>
+    <Color x:Key="TextTertiaryColor">#808080</Color>
+    
+    <!-- Status Colors -->
+    <Color x:Key="SuccessColor">#5BD787</Color>
+    <Color x:Key="WarningColor">#FFB74D</Color>
+    <Color x:Key="ErrorColor">#EF5350</Color>
+    <Color x:Key="InfoColor">#42A5F5</Color>
+    
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
+    <SolidColorBrush x:Key="PrimaryDarkBrush" Color="{StaticResource PrimaryDarkColor}" />
+    <SolidColorBrush x:Key="PrimaryLightBrush" Color="{StaticResource PrimaryLightColor}" />
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}" />
+    
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}" />
+    <SolidColorBrush x:Key="SurfaceBrush" Color="{StaticResource SurfaceColor}" />
+    <SolidColorBrush x:Key="CardBrush" Color="{StaticResource CardColor}" />
+    <SolidColorBrush x:Key="PaneBrush" Color="{StaticResource PaneColor}" />
+    
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimaryColor}" />
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondaryColor}" />
+    <SolidColorBrush x:Key="TextTertiaryBrush" Color="{StaticResource TextTertiaryColor}" />
+    
+    <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}" />
+    <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningColor}" />
+    <SolidColorBrush x:Key="ErrorBrush" Color="{StaticResource ErrorColor}" />
+    <SolidColorBrush x:Key="InfoBrush" Color="{StaticResource InfoColor}" />
+    
+    <!-- Currency Symbol -->
+    <system:String x:Key="BaseCurrencySymbol" xmlns:system="clr-namespace:System;assembly=mscorlib">£</system:String>
+    <system:String x:Key="BaseCurrencyCode" xmlns:system="clr-namespace:System;assembly=mscorlib">GBP</system:String>
+    
+    <!-- Typography -->
+    <FontFamily x:Key="PrimaryFontFamily">Segoe UI Variable</FontFamily>
+    
+    <!-- Corner Radius -->
+    <CornerRadius x:Key="SmallCornerRadius">4</CornerRadius>
+    <CornerRadius x:Key="MediumCornerRadius">8</CornerRadius>
+    <CornerRadius x:Key="LargeCornerRadius">12</CornerRadius>
+
+</ResourceDictionary>

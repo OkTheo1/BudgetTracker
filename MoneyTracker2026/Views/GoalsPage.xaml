@@ -1,0 +1,73 @@
+<Page
+    x:Class="MoneyTracker2026.Views.GoalsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MoneyTracker2026.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{StaticResource BackgroundBrush}">
+
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Grid Grid.Row="0" Margin="0,0,0,24">
+            <TextBlock Text="Savings Goals" 
+                       FontSize="28" 
+                       FontWeight="SemiBold" 
+                       Foreground="{StaticResource TextPrimaryBrush}"/>
+            <Button Content="Add Goal" 
+                    Background="{StaticResource PrimaryBrush}"
+                    Foreground="White"
+                    HorizontalAlignment="Right"
+                    Click="AddGoal_Click"/>
+        </Grid>
+
+        <!-- Goals Grid -->
+        <GridView Grid.Row="1" x:Name="GoalsGrid">
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="{StaticResource CardBrush}" 
+                            CornerRadius="12" 
+                            Padding="20"
+                            Width="280"
+                            Margin="8">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Icon}" FontSize="32" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Name}" 
+                                       Foreground="{StaticResource TextPrimaryBrush}"
+                                       FontSize="18" 
+                                       FontWeight="SemiBold"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,12,0,8"/>
+                            
+                            <ProgressBar Value="{Binding PercentComplete}" 
+                                         Maximum="100" 
+                                         Height="12" 
+                                         Margin="0,8"
+                                         Foreground="{StaticResource PrimaryBrush}"/>
+                            
+                            <Grid>
+                                <TextBlock Text="{Binding CurrentText}" 
+                                           Foreground="{StaticResource TextSecondaryBrush}"/>
+                                <TextBlock Text="{Binding TargetText}" 
+                                           Foreground="{StaticResource TextTertiaryBrush}"
+                                           HorizontalAlignment="Right"/>
+                            </Grid>
+                            
+                            <TextBlock Text="{Binding TargetDateText}" 
+                                       Foreground="{StaticResource TextTertiaryBrush}"
+                                       FontSize="12"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,8,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+</Page>

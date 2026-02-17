@@ -1,0 +1,14 @@
+<Window
+    x:Class="MoneyTracker2026.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MoneyTracker2026"
+    Title="MoneyTracker 2026">
+
+    <Grid>
+        <TextBlock Text="MoneyTracker 2026" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   FontSize="24"/>
+    </Grid>
+</Window>
