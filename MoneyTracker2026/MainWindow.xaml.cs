@@ -12,6 +12,9 @@ namespace MoneyTracker2026
         {
             this.InitializeComponent();
 
+            // Set up acrylic/mica backdrop for premium 2026 feel
+            this.SystemBackdrop = new Microsoft.UI.Xaml.Media.MicaBackdrop { Kind = Microsoft.UI.Xaml.Media.MicaKind.BaseAlt };
+
             // Set up navigation
             ContentFrame.Navigate(typeof(OverviewPage));
             NavigationView.SelectedItem = NavigationView.MenuItems[0];
