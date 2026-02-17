@@ -15,78 +15,55 @@ namespace MoneyTracker2026
             // Set up acrylic/mica backdrop for premium 2026 feel
             this.SystemBackdrop = new Microsoft.UI.Xaml.Media.MicaBackdrop { Kind = Microsoft.UI.Xaml.Media.MicaKind.BaseAlt };
 
-            // Set up navigation
+            // Navigate to Overview page on startup
             ContentFrame.Navigate(typeof(OverviewPage));
-            NavigationView.SelectedItem = NavigationView.MenuItems[0];
-
-            // Handle window state changes
-            this.SizeChanged += MainWindow_SizeChanged;
-            this.WindowStateChanged += MainWindow_WindowStateChanged;
+            
+            // Select the first item
+            if (NavigationView.MenuItems.Count > 0)
+            {
+                NavigationView.SelectedItem = NavigationView.MenuItems[0];
+            }
         }
 
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            if (args.SelectedItem is NavigationViewItem item && item.TargetPageType != null)
+            if (args.SelectedItem is NavigationViewItem item)
             {
-                Type pageType = item.TargetPageType;
+                string tag = item.Tag?.ToString();
+                
+                Type pageType = tag switch
+                {
+                    "Overview" => typeof(OverviewPage),
+                    "Transactions" => typeof(TransactionsPage),
+                    "Budgets" => typeof(BudgetsPage),
+                    "Goals" => typeof(GoalsPage),
+                    "Debts" => typeof(DebtsPage),
+                    "Reports" => typeof(ReportsPage),
+                    "Settings" => typeof(SettingsPage),
+                    _ => typeof(OverviewPage)
+                };
+                
                 ContentFrame.Navigate(pageType);
-                TitleText.Text = $"MoneyTracker 2026 - {item.Content}";
             }
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void ContentFrame_Navigated(object sender, Windows.UI.Xaml.Navigation.NavigationEventArgs e)
         {
-            if (ContentFrame.CanGoBack)
-            {
-                ContentFrame.GoBack();
-            }
-        }
-
-        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
-        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.WindowState == WindowState.Maximized)
-            {
-                this.WindowState = WindowState.Normal;
-                MaximizeButton.Content = "\uE739"; // Maximize icon
-            }
-            else
-            {
-                this.WindowState = WindowState.Maximized;
-                MaximizeButton.Content = "\uE923"; // Restore icon
-            }
-        }
-
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            // Update title bar visibility or layout if needed
-        }
-
-        private void MainWindow_WindowStateChanged(object sender, WindowStateChangedEventArgs args)
-        {
-            // Update maximize button icon based on window state
-            if (this.WindowState == WindowState.Maximized)
-            {
-                MaximizeButton.Content = "\uE923"; // Restore icon
-            }
-            else
-            {
-                MaximizeButton.Content = "\uE739"; // Maximize icon
-            }
-        }
-
-        public void SetTitleBar(UIElement titleBar)
-        {
-            // This is handled in OnLaunched in App.xaml.cs
+            // Update navigation selection based on the current page
+            if (e.SourcePageType == typeof(OverviewPage))
+                NavigationView.SelectedItem = NavigationView.MenuItems[0];
+            else if (e.SourcePageType == typeof(TransactionsPage))
+                NavigationView.SelectedItem = NavigationView.MenuItems[1];
+            else if (e.SourcePageType == typeof(BudgetsPage))
+                NavigationView.SelectedItem = NavigationView.MenuItems[2];
+            else if (e.SourcePageType == typeof(GoalsPage))
+                NavigationView.SelectedItem = NavigationView.MenuItems[3];
+            else if (e.SourcePageType == typeof(DebtsPage))
+                NavigationView.SelectedItem = NavigationView.MenuItems[4];
+            else if (e.SourcePageType == typeof(ReportsPage))
+                NavigationView.SelectedItem = NavigationView.MenuItems[5];
+            else if (e.SourcePageType == typeof(SettingsPage))
+                NavigationView.SelectedItem = NavigationView.FooterMenuItems[0];
         }
     }
 }
